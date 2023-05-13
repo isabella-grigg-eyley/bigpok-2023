@@ -32,6 +32,8 @@ public class WizardUI : MonoBehaviour
 
     public InputField m_keyInput = null;
 
+    public ProgressBar m_progressBar = null;
+
     // buttons
     public GameObject m_prevButton = null;
     public GameObject m_nextButton = null;
@@ -73,6 +75,8 @@ public class WizardUI : MonoBehaviour
 
         m_cancelButtonText.text = cancelButtonText;
         
+        m_progressBar.gameObject.SetActive(currentWizardState == WizardState.InstallingProgressBarScreen);
+        
         m_prevButton.gameObject.SetActive(currentWizardState < WizardState.InstallationComplete);
         m_nextButton.gameObject.SetActive(currentWizardState < WizardState.InstallationComplete);
         
@@ -92,6 +96,10 @@ public class WizardUI : MonoBehaviour
                 string bodyText = "";
                 m_headerText.text = headerText;
                 m_bodyText.text = bodyText;
+                // Start progress bar animation
+                m_progressBar.OnProgressBarCompleted += OnProgressBarComplete;
+                m_nextButton.GetComponent<Button>().interactable = false;
+                StartCoroutine(m_progressBar.PlayProgressAnim());
                 break;
             }
             case WizardState.Register:
@@ -129,5 +137,13 @@ public class WizardUI : MonoBehaviour
             return;
         }
         Application.Quit();
+    }
+
+    private void OnProgressBarComplete()
+    {
+        m_progressBar.OnProgressBarCompleted -= OnProgressBarComplete;
+        
+        // Progress finished, unlock next button
+        m_nextButton.GetComponent<Button>().interactable = true;
     }
 }

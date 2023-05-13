@@ -24,7 +24,7 @@ public class ProgressBar : MonoBehaviour
         public float TargetPercentage = 0.0f;
     }
 
-    void Start()
+    private void Start()
     {
         SetProgress(0.0f);
     }

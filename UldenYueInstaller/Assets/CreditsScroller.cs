@@ -14,6 +14,8 @@ public class CreditsScroller : MonoBehaviour
     public AudioSource m_rickroll = null;
 
     public float m_scrollTime = 10.0f;
+
+    public GameObject NewRevealAnimGO = null;
     
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,10 @@ public class CreditsScroller : MonoBehaviour
     {
         print("credits done");
         // fade out music
-        DOTween.To(() => m_rickroll.volume, x => m_rickroll.volume = x, 0.0f, 5.0f);
+        var tween = DOTween.To(() => m_rickroll.volume, x => m_rickroll.volume = x, 0.0f, 5.0f);
+        tween.onComplete += () =>
+        {
+            NewRevealAnimGO.SetActive(true);
+        };
     }
 }

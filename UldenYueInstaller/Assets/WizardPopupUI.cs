@@ -29,6 +29,8 @@ public class WizardPopupUI : MonoBehaviour
 
     public List<GameObject> m_closeButtons = null;
 
+    public AudioSource m_chord = null;
+
     public static event Action<WizardPopupState> AOnPopupClosed = null; // sends last popup state
 
     void Start()
@@ -67,12 +69,14 @@ public class WizardPopupUI : MonoBehaviour
                 m_bodyText.text = "Error: Registration key has already been used.";
                 m_warningImage.SetActive(true);
                 m_successImage.SetActive(false);
+                m_chord.Play();
                 break;
             case WizardPopupState.ErrorKeyInvalid:
                 m_headerText.text = "Registration Error";
                 m_bodyText.text = "Error: Registration key is invalid.";
                 m_warningImage.SetActive(true);
                 m_successImage.SetActive(false);
+                m_chord.Play();
                 break;
             case WizardPopupState.KeySuccess:
                 m_headerText.text = "Registration Complete";

@@ -35,6 +35,11 @@ public class NewRevealAnim : MonoBehaviour
             fading = true;
             DOTween.ToAlpha(() => m_image.color, x => m_image.color = x, 1.0f, timeToFadeIn).Play();
         }
+
+        public void FadeDown()
+        {
+            DOTween.ToAlpha(() => m_image.color, x => m_image.color = x, 0.0f, 2.0f).Play();
+        }
     }
     void Start()
     {
@@ -56,8 +61,6 @@ public class NewRevealAnim : MonoBehaviour
 
             if (fadeData.fading)
             {
-                fadeInData.Remove(fadeData);
-                i--;
                 continue;
             }
 
@@ -65,9 +68,26 @@ public class NewRevealAnim : MonoBehaviour
             {
                 print("start fade");
                 fadeData.StartFade();
-                fadeInData.Remove(fadeData);
-                i--;
             }
         }
+
+        if (m_music.isPlaying == false)
+        {
+            // we at da end
+
+            foreach (FadeInData data in fadeInData)
+            {
+                data.FadeDown();
+            }
+
+            StartCoroutine(QuitOnFinish());
+        }
+    }
+
+    private IEnumerator QuitOnFinish()
+    {
+        yield return new WaitForSeconds(2.0f);
+        print("da end");
+        Application.Quit();
     }
 }

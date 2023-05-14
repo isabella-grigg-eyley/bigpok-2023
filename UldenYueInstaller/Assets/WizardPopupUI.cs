@@ -56,7 +56,7 @@ public class WizardPopupUI : MonoBehaviour
         switch (m_currentPopupState)
         {
             case WizardPopupState.IntroLoadingBar:
-                m_headerText.text = "Loading Ulden Yue© Setup Wizard";
+                m_headerText.text = "Loading Uldun Yue© Setup Wizard";
                 m_bodyText.text = "Loading Uldun Yue© Setup Wizard...";
                 m_warningImage.SetActive(false);
                 m_successImage.SetActive(true);
@@ -80,7 +80,7 @@ public class WizardPopupUI : MonoBehaviour
                 break;
             case WizardPopupState.KeySuccess:
                 m_headerText.text = "Registration Complete";
-                m_bodyText.text = "Registration success!\nEnjoy playing Ulden Yue©!";
+                m_bodyText.text = "Registration success!\nEnjoy playing Uldun Yue©!";
                 m_warningImage.SetActive(false);
                 m_successImage.SetActive(true);
                 break;

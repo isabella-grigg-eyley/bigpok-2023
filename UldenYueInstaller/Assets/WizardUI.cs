@@ -23,8 +23,9 @@ public class WizardUI : MonoBehaviour
         
         stretch: EULA, where to install
      * */
-    
-    // TODO improve uninteractable state to be more grey
+    private static readonly Color InteractableTextColour = new Color(0.196f,0.196f,0.196f, 1.0f);
+    private static readonly Color UninteractableTextColour = new Color(0.502f,0.502f,0.502f, 1.00f);
+
     private const string KeySuccess = "H5E1LL3291KJ"; // H5E1 LL32 91KJ
     private const string KeyUsed = "L4L1BH2$48YR"; // L4L1 BH2$ 48YR
 
@@ -42,9 +43,8 @@ public class WizardUI : MonoBehaviour
     public ProgressBar m_progressBar = null;
 
     // buttons
-    public GameObject m_prevButton = null;
-    public GameObject m_nextButton = null;
-    public GameObject m_cancelButton = null;
+    public Button m_prevButton = null;
+    public Button m_nextButton = null;
     
     public TextMeshProUGUI m_cancelButtonText = null;
     
@@ -102,7 +102,7 @@ public class WizardUI : MonoBehaviour
                 m_bodyText.text = bodyText;
                 // Start progress bar animation
                 m_progressBar.OnProgressBarCompleted += OnProgressBarComplete;
-                m_nextButton.GetComponent<Button>().interactable = false;
+                SetInteractableState(m_nextButton, false);
                 StartCoroutine(m_progressBar.PlayProgressAnim());
                 break;
             }
@@ -112,7 +112,7 @@ public class WizardUI : MonoBehaviour
                 string bodyText = "Please enter your registration key of Uldun Yue©.\nYou can find this key in your Uldun Yue© CD-ROM box.";
                 m_headerText.text = headerText;
                 m_bodyText.text = bodyText;
-                m_nextButton.GetComponent<Button>().interactable = false;
+                SetInteractableState(m_nextButton, false);
                 break;
             }
             case WizardState.InstallationComplete:
@@ -156,7 +156,15 @@ public class WizardUI : MonoBehaviour
         m_progressBar.OnProgressBarCompleted -= OnProgressBarComplete;
         
         // Progress finished, unlock next button
-        m_nextButton.GetComponent<Button>().interactable = true;
+        SetInteractableState(m_nextButton, true);
+    }
+
+    private void SetInteractableState(Button button, bool interactable)
+    {
+        button.GetComponent<Button>().interactable = interactable;
+        // set colour
+        TMP_Text tmpText = button.GetComponentInChildren<TMP_Text>();
+        tmpText.color = interactable ? InteractableTextColour : UninteractableTextColour;
     }
 
     private void OnWizardPopupClosed(WizardPopupUI.WizardPopupState lastState)
@@ -195,7 +203,7 @@ public class WizardUI : MonoBehaviour
 
             if (keyInputField.text.Length < 4) // key not done
             {
-                m_nextButton.GetComponent<Button>().interactable = false; // make sure still uninteractable
+                SetInteractableState(m_nextButton, false);
                 return;
             }
         }
@@ -228,6 +236,6 @@ public class WizardUI : MonoBehaviour
             AOnNextClicked += () => m_wizardPopupUI.SetState(WizardPopupUI.WizardPopupState.ErrorKeyInvalid);
         }
         
-        m_nextButton.GetComponent<Button>().interactable = true;
+        SetInteractableState(m_nextButton, true);
     }
 }

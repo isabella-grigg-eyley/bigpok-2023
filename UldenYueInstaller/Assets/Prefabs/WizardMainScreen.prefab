@@ -3395,9 +3395,8 @@ MonoBehaviour:
   - {fileID: 6904866821659641471}
   - {fileID: 3203279463303266008}
   m_progressBar: {fileID: 5284839705626108032}
-  m_prevButton: {fileID: 8525926379327027520}
-  m_nextButton: {fileID: 8525926380711127063}
-  m_cancelButton: {fileID: 8525926378981692633}
+  m_prevButton: {fileID: 8525926379327027522}
+  m_nextButton: {fileID: 8525926380711127057}
   m_cancelButtonText: {fileID: 8525926380099353320}
 --- !u!1 &8525926380854226088
 GameObject:

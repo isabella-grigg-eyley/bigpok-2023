@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.sator-imaging.app-window-utility": {
+      "version": "https://github.com/sator-imaging/AppWindowUtility.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "92110b8c9515c3ec9056c924c113e1721b9a5bbc"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.10",
       "depth": 1,

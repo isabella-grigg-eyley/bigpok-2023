@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using SatorImaging.AppWindowUtility;
 
 public class WizardUI : MonoBehaviour
 {
@@ -63,6 +65,10 @@ public class WizardUI : MonoBehaviour
 
     private void Start()
     {
+#if UNITY_STANDALONE_WIN && !UNITY_EDITOR
+        AppWindowUtility.Transparent = true;
+#endif
+
         currentWizardState = WizardState.Closed;
         RefreshWizardUI();
 

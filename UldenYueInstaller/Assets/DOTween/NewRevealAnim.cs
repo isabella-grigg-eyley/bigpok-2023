@@ -38,6 +38,7 @@ public class NewRevealAnim : MonoBehaviour
     }
     void Start()
     {
+        time = 0.0f;
         m_music.Play();
         for (var i = 0; i < fadeInData.Count; i++)
         {
@@ -60,7 +61,7 @@ public class NewRevealAnim : MonoBehaviour
                 continue;
             }
 
-            if (fadeData.timeFromStartToFadeIn >= time)
+            if (fadeData.timeFromStartToFadeIn <= time)
             {
                 print("start fade");
                 fadeData.StartFade();

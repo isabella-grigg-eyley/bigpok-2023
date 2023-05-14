@@ -240,4 +240,9 @@ public class WizardUI : MonoBehaviour
         
         SetInteractableState(m_nextButton, true);
     }
+
+	private void OnApplicationQuit()
+	{
+        PlayerPrefs.DeleteAll();
+	}
 }

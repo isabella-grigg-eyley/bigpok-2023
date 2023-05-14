@@ -171,7 +171,7 @@ MonoBehaviour:
   m_creditsText: {fileID: 1553498629434109146}
   m_background: {fileID: 1553498628189637256}
   m_rickroll: {fileID: 3100088318172683981}
-  m_scrollTime: 30
+  m_scrollTime: 20
   NewRevealAnimGO: {fileID: 5264521899431838500}
 --- !u!82 &3100088318172683981
 AudioSource:
@@ -338,13 +338,12 @@ MonoBehaviour:
   m_text: "Credits\n\n\n\nCreated by\n\n\n\nOlivier Chrun\n\nSami Habib\n\nBella
     Grigg-Eyley\n\nMat Piddington\n\nTim Donnan\n\n\n\nStarring\n\n\nTim Donnan\n\nAs\n\nRaglan
     Resnick\n\n\n\nAnd Introducing \n\nUldunPlayer69\n\n(the Discord Bot)\n\n\n\nAssets
-    / Code used\n\n\nhttps://comp3interactive.itch.io/retro-windows-gui\n\nhttps://win98icons.alexmeub.com/\n\nhttps://discord.js.org/\n\nSpecial
+    / Code used\n\n\nhttps://comp3interactive.itch.io/retro-windows-gui\n\nhttps://win98icons.alexmeub.com/\n\nhttps://discord.js.org/\n\n\n\nSpecial
     Thanks\n\n\nCrumpet the Cat\n\nCoco the Cat\n\nJared Trail\n\nSam Shields\n\nCourt
-    McQueen\n\nAndrew Peek\n\nMcDonalds New Zealand\n\nNigel \n\nAram\n\nGids\n\nJames
-    CL\n\nCampbell\n\nJames 3\n\nDude\n\nLuka\n\nJack\n\nAndrew\n\nCaylem\n\nNot
-    Paul, Paul is on vacation\n\nLarissa and Lillian for asking how the game jam
-    was going\n\nMat\u2019s Mum :) \n\nAlso Bella\u2019s Mum\n\nAll BrooDWatch members
-    WATCH BROTHERS FOR LIFEEEEE\n"
+    McQueen\n\nAndrew Peek\n\nMcDonalds New Zealand\n\nOlivier's basketball team
+    (except Paul, Paul was on vacation)\n\nLarissa and Lillian for asking how the
+    game jam was going\n\nMat\u2019s Mum :) \n\nAlso Bella\u2019s Mum\n\nRick Astley\n\nAll
+    BrooDWatch members WATCH BROTHERS FOR LIFEEEEE\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a9fb72713462bd34a99acbf23a40dd74, type: 2}
   m_sharedMaterial: {fileID: -4406428672775297824, guid: a9fb72713462bd34a99acbf23a40dd74, type: 2}
@@ -623,32 +622,32 @@ MonoBehaviour:
   m_music: {fileID: 8452308133448835180}
   fadeInData:
   - m_image: {fileID: 5715796037338840796}
-    timeFromStartToFadeIn: 3
-    timeToFadeIn: 2
+    timeFromStartToFadeIn: 5
+    timeToFadeIn: 5
     fading: 0
   - m_image: {fileID: 6360997287140981200}
-    timeFromStartToFadeIn: 4
-    timeToFadeIn: 1
+    timeFromStartToFadeIn: 7
+    timeToFadeIn: 5
     fading: 0
   - m_image: {fileID: 101725860955247042}
-    timeFromStartToFadeIn: 5.5
-    timeToFadeIn: 2
+    timeFromStartToFadeIn: 9
+    timeToFadeIn: 5
     fading: 0
   - m_image: {fileID: 309220227709128375}
-    timeFromStartToFadeIn: 8
-    timeToFadeIn: 2
+    timeFromStartToFadeIn: 10
+    timeToFadeIn: 4
     fading: 0
   - m_image: {fileID: 8627843084069313957}
-    timeFromStartToFadeIn: 8
-    timeToFadeIn: 2
+    timeFromStartToFadeIn: 10
+    timeToFadeIn: 4
     fading: 0
   - m_image: {fileID: 37171153695679247}
-    timeFromStartToFadeIn: 9
-    timeToFadeIn: 1
+    timeFromStartToFadeIn: 12
+    timeToFadeIn: 4
     fading: 0
   - m_image: {fileID: 1915116830666101957}
-    timeFromStartToFadeIn: 9
-    timeToFadeIn: 1
+    timeFromStartToFadeIn: 12
+    timeToFadeIn: 4
     fading: 0
 --- !u!82 &8452308133448835180
 AudioSource:

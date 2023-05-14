@@ -12847,14 +12847,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Credits
       objectReference: {fileID: 0}
-    - target: {fileID: 1553498628189637263, guid: a15350a06418042d7b05c3d42efc0e01, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5861077894916528907, guid: a15350a06418042d7b05c3d42efc0e01, type: 3}
-      propertyPath: m_scrollTime
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a15350a06418042d7b05c3d42efc0e01, type: 3}
 --- !u!1001 &5350649709508879387

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class WizardPopupUI : MonoBehaviour
@@ -24,6 +25,10 @@ public class WizardPopupUI : MonoBehaviour
 
     private WizardPopupState m_currentPopupState = WizardPopupState.IntroLoadingBar;
 
+    public ProgressBar m_progressBar = null;
+
+    public List<GameObject> m_closeButtons = null;
+
     public static event Action<WizardPopupState> AOnPopupClosed = null; // sends last popup state
 
     void Start()
@@ -40,15 +45,22 @@ public class WizardPopupUI : MonoBehaviour
     private void RefreshUI()
     {
         gameObject.SetActive(m_currentPopupState > WizardPopupState.Closed);
+        m_progressBar.gameObject.SetActive(m_currentPopupState == WizardPopupState.IntroLoadingBar);
+        foreach (GameObject closeButton in m_closeButtons)
+        {
+            closeButton.SetActive(m_currentPopupState != WizardPopupState.IntroLoadingBar);
+        }
         
         switch (m_currentPopupState)
         {
             case WizardPopupState.IntroLoadingBar:
                 m_headerText.text = "Loading Ulden Yue© Setup Wizard";
-                m_bodyText.text = "";
+                m_bodyText.text = "Loading Uldun Yue© Setup Wizard...";
                 m_warningImage.SetActive(false);
                 m_successImage.SetActive(true);
-                // TODO turn on loading bar
+                m_progressBar.OnProgressBarCompleted += OnLoadingBarComplete;
+                StartCoroutine(m_progressBar.PlayProgressAnim());
+                
                 break;
             case WizardPopupState.ErrorKeyUsed:
                 m_headerText.text = "Registration Error";
@@ -78,5 +90,11 @@ public class WizardPopupUI : MonoBehaviour
     {
         AOnPopupClosed?.Invoke(m_currentPopupState);
         SetState(WizardPopupState.Closed);
+    }
+
+    public void OnLoadingBarComplete()
+    {
+        m_progressBar.OnProgressBarCompleted -= OnLoadingBarComplete;
+        OnPopupClosed();
     }
 }

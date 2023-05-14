@@ -42,6 +42,8 @@ public class WizardUI : MonoBehaviour
 
     public ProgressBar m_progressBar = null;
 
+    public GameObject m_credits = null;
+
     // buttons
     public Button m_prevButton = null;
     public Button m_nextButton = null;
@@ -145,7 +147,7 @@ public class WizardUI : MonoBehaviour
     {
         if (currentWizardState == WizardState.InstallationComplete)
         {
-            print("end celebration");
+            m_credits.SetActive(true);
             return;
         }
         Application.Quit();
